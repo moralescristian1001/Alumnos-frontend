@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="text-center pt-5">Reporte cursos</h2>
+  <form name="editForm" role="form" novalidate (ngSubmit)="cargar()" #editForm="ngForm">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-md-3">
+        <label for="inputState"></label>
+        <select id="inputState" class="form-control" (change)="selectCurso($event)">
+          <option selected>Seleccione el curso</option>
+          <option *ngFor="let curso of cursos" [value]="curso.id">{{curso.nombre}}</option>
+        </select>
+      </div>
+      <div class="form-group col-2 pt-4">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="inscripcionesCurso">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Nombre curso</th>
+        <th scope="col">Nombre estudiante</th>
+        <th scope="col">Apellido estudiante</th>
+        <th scope="col">Identificación estudiante</th>
+        <th scope="col">Fecha inscripción</th>
+        <th scope="col">Año</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let inscripcion of inscripcionesCurso">
+        <td>{{inscripcion.curso.nombre}}</td>
+        <td>{{inscripcion.alumno.persona.nombre}}</td>
+        <td>{{inscripcion.alumno.persona.apellido}}</td>
+        <td>{{inscripcion.alumno.persona.documento}}</td>
+        <td>{{inscripcion.fechaInscripcion}}</td>
+        <td>{{inscripcion.curso.anio}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

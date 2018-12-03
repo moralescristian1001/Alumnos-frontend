@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="text-center pt-3 pb-3">Crear alumno</h2>
+  <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="tipoDocumento">Tipo de documento</label>
+          <input type="text" class="form-control" id="tipoDocumento" name="tipoDocumento"
+                 placeholder="Seleccione tipo de documento"  [(ngModel)]="alumno.persona.tipoDocumento">
+        </div>
+        <div class="form-group">
+          <label for="ndocumento">Número de documento</label>
+          <input type="number" class="form-control" [(ngModel)]="alumno.persona.documento" id="ndocumento" name="ndocumento" placeholder="Número de documento">
+        </div>
+        <div class="form-group">
+          <label for="legajo">Legajo</label>
+          <input type="number" class="form-control" [(ngModel)]="alumno.legajo" id="legajo" name="legajo" placeholder="Legajo">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" [(ngModel)]="alumno.persona.nombre" id="nombre" name="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="alumno.persona.apellido" placeholder="Apellido">
+        </div>
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="alumno.persona.fechaNacimiento" placeholder="Apellido">
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="isSaving" class="btn btn-primary">Crear</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-danger" (click)="previousState()">Cancelar</button>
+  </form>
+</div>
+

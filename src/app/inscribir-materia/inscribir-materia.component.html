@@ -1,0 +1,19 @@
+<div class="container pt-5">
+  <h2 class="text-center">Inscribir materia</h2>
+  <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="inputState"></label>
+        <select id="inputState" class="form-control" (change)="selectCurso($event)">
+          <option selected>Seleccione el curso</option>
+          <option *ngFor="let curso of cursos" [value]="curso.id">
+            {{curso.nombre}}
+          </option>
+        </select>
+      </div>
+      <div class="col-2 pt-4">
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </div>
+    </div>
+  </form>
+</div>

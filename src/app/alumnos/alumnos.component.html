@@ -1,0 +1,37 @@
+<div class="pt-5">
+  <h2 class="text-center pb-3">Lista de alumnos</h2>
+  <div class="container">
+    <div class="text-right pb-2">
+      <button type="button" class="btn btn-primary" routerLink="/crear-alumnos">Crear nuevo alumno</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" routerLink="/reporte-curso">Reporte de curso</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" routerLink="/reporte-curso">Reporte de alumno</button>
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Tipo de identificación</th>
+        <th scope="col">Identificación</th>
+        <th scope="col">Legajo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{alumno.persona.nombre}}</td>
+        <td>{{alumno.persona.apellido}}</td>
+        <td>{{alumno.persona.tipoDocumento}}</td>
+        <td>{{alumno.persona.documento}}</td>
+        <td>{{alumno.legajo}}</td>
+        <td>
+          <a class="pr-4" [routerLink]="['/crear-alumnos/',alumno.id, 'editar']">Editar</a>
+          <a [routerLink]="['/inscribir-materia/',alumno.id]">Inscribir materia</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
